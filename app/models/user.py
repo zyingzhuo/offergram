@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     @property
     def password(self):
         return self.hashed_password
-
+    # yes
     @password.setter
     def password(self, password):
         self.hashed_password = generate_password_hash(password)
