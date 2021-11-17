@@ -8,6 +8,10 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import CreateProductForm from './components/CreateProductForm';
+import AllProducts from './components/AllProductsPage/AllProducts';
+import SingleProduct from './components/AllProductsPage/SingleProduct';
+import OneProductPage from './components/OneProductPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,6 +32,14 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+       
+        <ProtectedRoute path="/products" exact={true}>
+          <CreateProductForm />
+          <AllProducts/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/products/:productId' exact={true} >
+          <OneProductPage/>
+        </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
