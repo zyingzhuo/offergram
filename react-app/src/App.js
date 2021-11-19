@@ -12,6 +12,7 @@ import CreateProductForm from './components/CreateProductForm';
 import AllProducts from './components/AllProductsPage/AllProducts';
 import SingleProduct from './components/AllProductsPage/SingleProduct';
 import OneProductPage from './components/OneProductPage';
+import CreateReviewForm from './components/CreateReviewForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <AllProducts/>
         </ProtectedRoute>
         <ProtectedRoute path='/products/:productId' exact={true} >
+        <CreateReviewForm />
           <OneProductPage/>
         </ProtectedRoute>
         <Route path='/login' exact={true}>
@@ -50,6 +52,7 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
+          
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >

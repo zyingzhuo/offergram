@@ -1,8 +1,9 @@
 from flask import Blueprint, jsonify, request
 from app.forms.product_form import ProductForm
+from app.forms.review_form import ReviewForm
 
 # from flask_login import login_required
-from app.models import Product,db, Review, User, product
+from app.models import Product,db, Review, User, Product
 from sqlalchemy import update
 
 product_routes = Blueprint('product_routes', __name__)
@@ -31,6 +32,8 @@ def add_product():
     return {"errors":validation_errors_to_error_messages(form.errors)}
 
 
+
+
 @product_routes.route('/', methods=['GET'])
 def all_products():
     products= Product.query.all()
@@ -38,6 +41,16 @@ def all_products():
         'products': [product.to_dict() for product in products]
     }
 
+# @product_routes.route('/<int:id>', methods=['GET'])
+# def one_product(id):
+#     currentProductSeller=Product.query.filter(Product.id==id)[0].sellerId
+#     # print('currentProductSeller',currentProductSeller)
+#     reviews=Review.query.filter(Review.revieweeId==currentProductSeller)
+#     return {
+#         'reviews': [review.to_dict() for review in reviews]
+#     }
+    
+    
 @product_routes.route('/<int:id>', methods=['DELETE'])
 def delete_product(id):
     product=Product.query.get(id)

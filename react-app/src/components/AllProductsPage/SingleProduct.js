@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom"
 
 
 function SingleProduct({product}) {
- 
+   
+   
     return (
         <div >
             

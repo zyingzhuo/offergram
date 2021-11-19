@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import EditProductFormProvider from './context/EditProductContext';
+import EditReviewFormProvider from './context/EditReviewContext';
 
 const store = configureStore();
 
@@ -12,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <EditProductFormProvider>
+      <EditReviewFormProvider>
         <App />
+      </EditReviewFormProvider>
       </EditProductFormProvider>
       </Provider>
   </React.StrictMode>,
