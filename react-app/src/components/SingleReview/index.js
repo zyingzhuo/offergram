@@ -11,7 +11,7 @@ import { useState } from "react"
 function SingleReview({review, productId}){
     const [editreview, seteditReview]=useState(false)
    
-    //const {editReviewForm, setEditReviewForm}=useEditReviewForm()
+   
     const dispatch = useDispatch()
     const history=useHistory()
     const currentUserId = useSelector(state => state.session.user.id)
@@ -33,7 +33,7 @@ return (
     <div>{review?.comment}</div>
     {review?.reviewerId==currentUserId&& (
         <div>
-            <button onClick={()=>seteditReview(true)}>edit</button>
+            <button onClick={()=>seteditReview(true)}>edit review</button>
             <button onClick={onClickDelete}>delete review</button>
             {editreview &&(
                 <EditReviewForm reviewId={review.id} />

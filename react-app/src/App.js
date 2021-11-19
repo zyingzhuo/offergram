@@ -13,6 +13,7 @@ import AllProducts from './components/AllProductsPage/AllProducts';
 import SingleProduct from './components/AllProductsPage/SingleProduct';
 import OneProductPage from './components/OneProductPage';
 import CreateReviewForm from './components/CreateReviewForm';
+import Search from './components/Search';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,7 +34,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-       
+        <ProtectedRoute path="/" exact={true}>
+         <Search/>
+        </ProtectedRoute>
         <ProtectedRoute path="/products" exact={true}>
           <CreateProductForm />
           <AllProducts/>
