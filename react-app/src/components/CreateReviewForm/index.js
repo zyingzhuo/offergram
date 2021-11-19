@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useHistory} from 'react-router';
 import { createReview } from '../../store/review';
+import {Rating, RatingView} from 'react-simple-star-rating'
 
 
 
@@ -19,10 +20,12 @@ function CreateReviewForm(){
     const currentProduct=useSelector(state=>state.product[productId])
     const sellerId=currentProduct?.sellerId
     // const seller=useSelector(state=>state.user[sellerId])
-    const [rating, setRating]=useState()
+    const [rating, setRating]=useState(0)
     const [comment, setComment]=useState()
 
- 
+   const handleRating=(rate)=>{
+     setRating(rate)
+   }
 
 
     const handleSubmit= async(e)=>{
@@ -53,12 +56,13 @@ function CreateReviewForm(){
       </label>
        <label>
        rating
-       <input
+       {/* <input
          type="number"
          value={rating}
          onChange={(e) => setRating(e.target.value)}
          required
-       />
+       /> */}
+       <Rating onClick={handleRating} ratingValue={rating}/>
      </label>
      <button type="submit" >Submit your review</button>
      </form>

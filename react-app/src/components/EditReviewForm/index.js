@@ -8,10 +8,10 @@ import { useState } from 'react';
 import { useHistory} from 'react-router';
 import { createReview } from '../../store/review';
 import { editReview } from '../../store/review';
+import {Rating, RatingView} from 'react-simple-star-rating'
+import { useEditReviewForm } from '../../context/EditReviewContext';
 
-
-
-function EditReviewForm({reviewId}){
+function EditReviewForm({reviewId, seteditReview}){
    
     const {productId}=useParams()
     const dispatch = useDispatch()
@@ -22,9 +22,11 @@ function EditReviewForm({reviewId}){
     const currentReview=useSelector(state=>state.review[reviewId])
     const [rating, setRating]=useState(currentReview.rating)
     const [comment, setComment]=useState(currentReview.comment)
-
+    const {EditReviewForm, setEditReviewForm}=useEditReviewForm()
  
-
+    const handleRating=(rate)=>{
+      setRating(rate)
+    }
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
@@ -37,8 +39,10 @@ function EditReviewForm({reviewId}){
         }
         const review=await dispatch(editReview(payload,reviewId));
         if(review) {
+            seteditReview(false)
             history.push(`/products/${productId}`)
         }
+
     }
     return(
     <>
@@ -54,12 +58,13 @@ function EditReviewForm({reviewId}){
       </label>
        <label>
        rating
-       <input
+       {/* <input
          type="number"
          value={rating}
          onChange={(e) => setRating(e.target.value)}
          required
-       />
+       /> */}
+       <Rating onClick={handleRating} ratingValue={rating}/>
      </label>
      <button type="submit" >update your review</button>
      </form>
