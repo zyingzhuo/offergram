@@ -20,7 +20,7 @@ const OneProductPage=()=>{
     const history=useHistory()
     const currentProduct=useSelector(state=>state.product[+productId])
     
-   console.log(currentProduct)
+   
     const sellerId=currentProduct?.sellerId
     
     
@@ -36,6 +36,8 @@ const OneProductPage=()=>{
     // const sellerId=useSelector(state=>state.product[productId])[sellerId]
     const productSeller=useSelector(state=>state.user[currentProduct?.sellerId])
     const sesseionUser=useSelector(state=>state.session.user)
+
+    console.log(sesseionUser?.id==productSeller?.id)
     
     const onClickDelete=async(e)=>{
         e.preventDefault()
