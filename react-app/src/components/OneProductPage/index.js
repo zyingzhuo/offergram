@@ -61,6 +61,7 @@ const OneProductPage=()=>{
             <div>{currentProduct?.name}</div>
             <div>{currentProduct?.description}</div>
             <div>sold by {productSeller?.username}  </div>
+            <img src={(productSeller?.profilePic)} style={{height:"50px", borderRadius:'88%'}} />
             <div>sellersReview</div>
             {reviews.map((review)=>(
                 
