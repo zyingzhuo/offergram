@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { createProduct } from '../../store/product';
+import './CreateProductForm.css'
 
 
 function CreateProductForm () {
@@ -19,6 +20,7 @@ function CreateProductForm () {
     const[description, setDescription]=useState('')
     const[price, setPrice]=useState('')
     const[category, setCategory]=useState('')
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
@@ -36,46 +38,62 @@ function CreateProductForm () {
         if(product) {
             history.push(`/products/${product.id}`)
         }
-    }
+        // if (product) {
+        //   setErrors(product);
+        // } else {
+        //   history.push(`/products/${product.id}`)
+        // }
+      };
+    
 
 
     return (
-        <form onSubmit={handleSubmit} >
-        <div  >
-        <label>
+      <form onSubmit={handleSubmit} >
+        <div className='createProductContainer'>
+        <div >
+        <label >
           Name of your product
+          </label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-        </label>
-        <label>
+        
+        </div>
+        <div >
+        <label >
           Image
+          </label>
           <input
             type="url"
             value={image}
             onChange={(e) => setImage(e.target.value)}
             required
           />
-        </label>
-        <label>
+       </div>
+       <div >
+        <label >
           location
+          </label>
           <select value={location} onChange={(e)=>setLocation(e.target.value)}>
+            <option  value='' > -- select a city -- </option>
             <option value="Los Angels">Los Angels</option>
             <option value="New York City">New York City</option>
           </select>
-        </label>
-        <label>
+       </div>
+       <div >
+        <label >
           description
+          </label>
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
-        </label>
+        </div>
         <label>
           price
           <input
@@ -88,13 +106,15 @@ function CreateProductForm () {
         <label>
           category
           <select value={category} onChange={(e)=>setCategory(e.target.value)}>
+            <option  value=''> -- select a category -- </option>
             <option value="Electronics & Media" >Electronics & Media</option>
             <option value="Home & Garden"  >Home & Garden</option>
             <option value="Clothing,Shoes,& Accessories"  >Clothing,Shoes,& Accessories</option>
         </select>
         </label>
-          </div>
+         
         <button type="submit" >Create your product listing</button>
+      </div>
       </form>
     )
 }

@@ -1,0 +1,6 @@
+.createReviewContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+}

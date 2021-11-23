@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useHistory} from 'react-router';
 import { createReview } from '../../store/review';
 import {Rating, RatingView} from 'react-simple-star-rating'
+import './CreateReviewForm.css'
 
 
 
@@ -21,7 +22,7 @@ function CreateReviewForm(){
     const sellerId=currentProduct?.sellerId
     // const seller=useSelector(state=>state.user[sellerId])
     const [rating, setRating]=useState(0)
-    const [comment, setComment]=useState()
+    const [comment, setComment]=useState('')
 
    const handleRating=(rate)=>{
      setRating(rate)
@@ -46,17 +47,21 @@ function CreateReviewForm(){
     return(
     <>
         <form onSubmit={handleSubmit}>
+          <div className='createReviewContainer'>
         <label>
         comment
+        </label>
         <input
           type="text"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           required
+          style={{height:'2rem'}}
         />
-      </label>
+      
        <label>
        rating
+       </label>
        {/* <input
          type="number"
          value={rating}
@@ -64,8 +69,9 @@ function CreateReviewForm(){
          required
        /> */}
        <Rating onClick={handleRating} ratingValue={rating}/>
-     </label>
+     
      <button type="submit" >Submit your review</button>
+     </div>
      </form>
     </>
    )
