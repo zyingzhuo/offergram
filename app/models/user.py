@@ -1,6 +1,8 @@
+
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+
 
 
 class User(db.Model, UserMixin):
@@ -10,12 +12,11 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    # profilePic=db.Column(db.String, default='https://www.alaska.edu/_resources/images/placeholders/profile.png')
-    # contactNumber=db.Column(db.String, nullable=False)
-    # paymentsVerified=db.Column(db.Boolean)
-    # bought=db.Column(db.Integer)
-    # sold=db.Column(db.Integer)
-    # folowers=db.Column(db.Integer)
+    profilePic=db.Column(db.String, nullable=True)
+    bought=db.Column(db.Integer)
+    sold=db.Column(db.Integer)
+    
+
 
     @property
     def password(self):
@@ -33,14 +34,15 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            # 'profilePic': self.profilePic,
-            # 'contactNumber': self.contactNumber,
-            # 'paymentsVerified': self.paymentsVerified,
-            # 'bought': self.bought,
-            # 'sold': self.sold,
-            # 'followers': self.folowers
+            'profilePic': self.profilePic,
+            'bought': self.bought,
+            'sold': self.sold,
+           
+            
         }
 
     reviews=db.relationship('Review', back_populates='user')
    
     products=db.relationship('Product', back_populates='user')
+
+    messages=db.relationship('Message', back_populates='user')

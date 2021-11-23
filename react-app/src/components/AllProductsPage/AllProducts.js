@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 import { getProducts } from '../../store/product';
 import SingleProduct from './SingleProduct';
+import './AllProducts.css'
 
 const AllProducts=()=>{
 
@@ -25,11 +26,11 @@ const AllProducts=()=>{
         <div >
         
           {!productsArr.length && <span>No products available right now.</span>}
-          <ul >
+          <div className='productsContainer' >
             {productsArr.map((product) => (
               <SingleProduct  product={product} key={product.id} />
             ))}
-            </ul>
+            </div>
         </div>
       );
 }

@@ -2,13 +2,14 @@ import { getProducts } from "../../store/product"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { NavLink } from "react-router-dom"
+import'./AllProducts.css'
 
 
 function SingleProduct({product}) {
    
    
     return (
-        <div >
+        <div className='singleProductContainer'>
             
             {product&&(
                 <>
@@ -16,13 +17,14 @@ function SingleProduct({product}) {
             {/* <NavLink to={`/spots/${spot.id}`}>{spot?.name}</NavLink> */}
            
             {/* //{spot?.url} */}
-            <div>
+            <div >
                 <NavLink to={`/products/${product.id}`}>
-                <img src={(product?.image)} style={{height:"200px"}} />
+                <img src={(product?.image)} style={{height:"150px", width:'150px'}} />
                 </NavLink>
+                <div>{product?.name}</div>
                 <div>${product?.price}</div>
                 <div>{product?.location}</div>
-                <div>{product?.name}</div>
+               
                 
             </div>
           

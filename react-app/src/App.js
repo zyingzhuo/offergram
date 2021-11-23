@@ -14,10 +14,14 @@ import SingleProduct from './components/AllProductsPage/SingleProduct';
 import OneProductPage from './components/OneProductPage';
 import CreateReviewForm from './components/CreateReviewForm';
 import Search from './components/Search';
+import LandingPage from './components/LandingPage/LandingPage';
+import { useSelector } from 'react-redux';
+import DirectMessage from './components/DirectMessage/DirectMessage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const sessionUser=useSelector(state=>state.session.user)
 
   useEffect(() => {
     (async() => {
@@ -34,15 +38,20 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <ProtectedRoute path="/" exact={true}>
-         <Search/>
+       <ProtectedRoute path="/messages/sender/:senderId/receiver/:receiverId" exact={true}>
+        <DirectMessage />
         </ProtectedRoute>
-        <ProtectedRoute path="/products" exact={true}>
-          <CreateProductForm />
-          <AllProducts/>
+        <ProtectedRoute path="/selling" exact={true}>
+        <CreateProductForm />
         </ProtectedRoute>
+        <Route path="/" exact={true}>
+        {sessionUser ? (<AllProducts />):(<LandingPage />)}
+        
+        </Route>
+        {/* <ProtectedRoute path="/products" exact={true}>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/products/:productId' exact={true} >
-        <CreateReviewForm />
+       
           <OneProductPage/>
         </ProtectedRoute>
         <Route path='/login' exact={true}>
@@ -58,9 +67,9 @@ function App() {
           
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        {/* <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );

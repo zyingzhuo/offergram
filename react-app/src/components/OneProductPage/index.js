@@ -9,38 +9,53 @@ import EditProductForm from '../EditProductForm/EditProduct';
 import { useEditProductForm } from '../../context/EditProductContext';
 import { getReviews } from '../../store/review';
 import SingleReview from '../SingleReview';
+import ChatForm from '../ChatForm/ChatForm';
+import './OneProductPage.css'
+import CreateReviewForm from '../CreateReviewForm';
 
 
 const OneProductPage=()=>{
     // const [editForm, setEditForm]=useState(false)
     const {editForm, setEditForm}=useEditProductForm()
+    const [chatForm, setChatForm]=useState(false)
     const {productId}=useParams()
    
     const dispatch=useDispatch()
     const history=useHistory()
     const currentProduct=useSelector(state=>state.product[+productId])
     
-   console.log(currentProduct)
+   
     const sellerId=currentProduct?.sellerId
     
     
 
     useEffect(()=>{
       dispatch(getProducts())
-      dispatch(getReviews(sellerId))
+     
       dispatch(getUsers())
         
-    }, [dispatch,sellerId])
+    }, [dispatch])
+
+    useEffect(()=>{
+        if (currentProduct ){
+        dispatch(getReviews(currentProduct.sellerId))}
+    },[currentProduct]
+    )
+
+
+
     const reviews=useSelector((state)=>Object.values(state.review))
     
     // const sellerId=useSelector(state=>state.product[productId])[sellerId]
     const productSeller=useSelector(state=>state.user[currentProduct?.sellerId])
     const sesseionUser=useSelector(state=>state.session.user)
+    const sellerName=productSeller?.username
+   
     
     const onClickDelete=async(e)=>{
         e.preventDefault()
        const response=await dispatch(removeProduct(productId))
-        if(response) {history.push('/products')}
+        if(response) {history.push('/')}
     }
 
     return (
@@ -53,20 +68,17 @@ const OneProductPage=()=>{
        
         {/* //{spot?.url} */}
         <div>
-            
-            <img src={(currentProduct?.image)} style={{height:"200px"}} />
-           
+            <div className='mainContainer'>
+            <div className='productContainer'>
+            <div style={{gridTemplateColumns:'repeat 1fr'}}>
+            <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
+            <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
+            <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
+            </div>
             <div>${currentProduct?.price}</div>
             <div>{currentProduct?.location}</div>
             <div>{currentProduct?.name}</div>
             <div>{currentProduct?.description}</div>
-            <div>sold by {productSeller?.username}  </div>
-            <div>sellersReview</div>
-            {reviews.map((review)=>(
-                
-                <SingleReview review={review} key={review.id} productId={productId}/>
-                
-            ))}
             {(sesseionUser?.id==productSeller?.id)&&(
                 <>
                     <button onClick={()=>setEditForm(true)}>edit</button>
@@ -77,10 +89,25 @@ const OneProductPage=()=>{
                     )}
                 </>
             )
-            
-            
-            
             }
+            </div>
+            <div className='sellerContainer'>
+            <div>sold by {productSeller?.username}  </div>
+            <button style={{fontWeight:'bold'}} onClick={()=>setChatForm(true)}> contact seller</button>
+            {chatForm&& (
+                <ChatForm sellerName={sellerName} sellerId={sellerId}/>
+            )}
+            <img src={(productSeller?.profilePic)} style={{height:"50px", borderRadius:'88%'}} />
+            <div>sellersReview</div>
+            {reviews.map((review)=>(
+                
+                <SingleReview review={review} key={review.id} productId={productId}/>
+                
+            ))}
+             <CreateReviewForm />
+            </div>
+            </div>
+           
             
         </div>
       

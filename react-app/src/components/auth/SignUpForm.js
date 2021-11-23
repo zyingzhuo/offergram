@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './auth.css'
+
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -43,14 +45,18 @@ const SignUpForm = () => {
   }
 
   return (
+    <div className='authwrapper'>
+    <div className="AuthContainer">
+    <div className="AuthAttribute">Sign Up</div>
+    <div className="logo">OfferGram</div>
     <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <div className="container1">
+        <label className="label1">User Name</label>
         <input
           type='text'
           name='username'
@@ -58,8 +64,8 @@ const SignUpForm = () => {
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className="container1">
+        <label className="label1">Email</label>
         <input
           type='text'
           name='email'
@@ -67,17 +73,18 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className="container1">
+        <label className="label1">Password</label>
         <input
+          className="inputauth"
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className="container1">
+        <label className="label1">Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
@@ -86,8 +93,11 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <div className="loginLink"><NavLink to="login" style={{textDecoration:'none', color: '#00a87e'}}>Already have an account? Log in</NavLink></div>
+      <button type='submit'className="buttonauth" style={{marginLeft:'10%'}}>Sign Up</button>
     </form>
+    </div>
+    </div>
   );
 };
 

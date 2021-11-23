@@ -1,0 +1,21 @@
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.productContainer{
+    display: flex;
+    flex-direction:column;
+    width: 70%;
+
+}
+
+.sellerContainer{
+    /* width: 30%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}

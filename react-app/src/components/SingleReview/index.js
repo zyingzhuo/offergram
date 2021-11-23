@@ -5,6 +5,7 @@ import { useHistory } from "react-router"
 import {useEditReviewForm} from '../../context/EditReviewContext'
 import EditReviewForm from "../EditReviewForm"
 import { useState } from "react"
+import {Rating, RatingView} from 'react-simple-star-rating'
 
 
 
@@ -26,17 +27,19 @@ function SingleReview({review, productId}){
 
     }
 
-
+console.log(review?.reviewerId)
+console.log(currentUserId)
 
 return (
     <>
     <div>{review?.comment}</div>
+    <RatingView ratingValue={review?.rating} />
     {review?.reviewerId==currentUserId&& (
         <div>
             <button onClick={()=>seteditReview(true)}>edit review</button>
             <button onClick={onClickDelete}>delete review</button>
             {editreview &&(
-                <EditReviewForm reviewId={review.id} />
+                <EditReviewForm reviewId={review.id} seteditReview={seteditReview} />
             )}
         </div>
     )}
