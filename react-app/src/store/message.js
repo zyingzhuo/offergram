@@ -13,10 +13,12 @@ const addMessage=(message)=>({
 
 export const getMessages=(senderId, receiverId)=>async(dispatch)=>{
     const response=await fetch(`/api/messages/sender/${senderId}/receiver/${receiverId}`)
-    const messages=await response.json()
-    console.log(messages)
-    dispatch(loadMessages(messages.messages))
-    return messages
+    if(response.ok) {
+
+        const messages=await response.json()
+        dispatch(loadMessages(messages.messages))
+        return messages
+    }
 }
 
 // export const createMessage=(payload)=>async(dispatch)=>{

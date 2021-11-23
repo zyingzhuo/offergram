@@ -38,9 +38,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-       <ProtectedRoute path="/messages/sender/:senderId/receiver/:receiverId" exact={true}>
+       {/* <ProtectedRoute path="/messages/sender/:senderId/receiver/:receiverId" exact={true}>
         <DirectMessage />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path="/selling" exact={true}>
         <CreateProductForm />
         </ProtectedRoute>
