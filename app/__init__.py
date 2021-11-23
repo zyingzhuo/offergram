@@ -5,8 +5,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-
-from .websocket import socketio
+# from .websocket import socketio
 
 from .models import db, User
 from .api.user_routes import user_routes
@@ -43,7 +42,7 @@ app.register_blueprint(message_routes,url_prefix='/api/messages')
 db.init_app(app)
 Migrate(app, db)
 
-socketio.init_app(app)
+# socketio.init_app(app)
 
 # Application Security
 CORS(app)
@@ -84,5 +83,5 @@ def react_root(path):
 
 
 # at the bottom of the file, use this to run the app
-if __name__ == '__main__':
-    socketio.run(app)
+# if __name__ == '__main__':
+#     socketio.run(app)
