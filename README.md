@@ -11,7 +11,7 @@
 
 1. [Live Link](https://offergram-aa.herokuapp.com/) 
 
-2. [Feature List](https://github.com/KristyCS/Kalendar/wiki/Feature-List)
+2. [MVP](https://github.com/zyingzhuo/offergram/wiki/MVP-List)
 
 ## Technologies
 
