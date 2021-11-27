@@ -10,7 +10,7 @@ class Product(db.Model):
   image=db.Column(db.String, nullable=False)
   location=db.Column(db.String, nullable=False)
   description=db.Column(db.String, nullable=False)
-  price=db.Column(db.String, nullable=False)
+  price=db.Column(db.Integer, nullable=False)
   category=db.Column(db.String, nullable=False)
 
   user=db.relationship('User', back_populates='products')

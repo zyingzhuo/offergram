@@ -20,7 +20,8 @@ def get_messages(senderId,receiverId):
 
     # |(Message.senderId==receiverId& Message.receiverId==senderId)
 
-@message_routes.route('/sender/<int:senderId>/receiver/<int:receiverId>', methods=['POST'])
+# @message_routes.route('/sender/<int:senderId>/receiver/<int:receiverId>', methods=['POST'])
+@message_routes.route('/', methods=['POST'])
 def add_message():
     form=MessageForm()
     form['csrf_token'].data=request.cookies['csrf_token']
