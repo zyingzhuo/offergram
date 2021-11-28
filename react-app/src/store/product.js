@@ -41,6 +41,8 @@ export const createProduct=(payload)=>async(dispatch)=>{
         dispatch(addProduct(product))
         return product
     }
+
+  
 }
 
 export const editProduct=(payload,productId)=>async(dispatch)=>{

@@ -20,7 +20,14 @@ function CreateProductForm () {
     const[description, setDescription]=useState('')
     const[price, setPrice]=useState('')
     const[category, setCategory]=useState('')
-    const [errors, setErrors] = useState([]);
+    const [validationErrors, setValidationErrors]=useState([])
+
+    const validate=()=>{
+      const validationErrors=[]
+      if(name.length>50) validationErrors.push('name must be less than 25 characters');
+      if(price<0) validationErrors.push('price must be greater than 0')
+      return validationErrors
+    }
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
@@ -34,11 +41,18 @@ function CreateProductForm () {
             price,
             category
         }
+
+        const errors=validate();
+        if(errors.length>0) {
+          setValidationErrors(errors)
+        } else {
+          setValidationErrors([])
         const product=await dispatch(createProduct(payload));
         if(product) {
             history.push(`/products/${product.id}`)
         }
-        // if (product) {
+      }
+        // if (!product) {
         //   setErrors(product);
         // } else {
         //   history.push(`/products/${product.id}`)
@@ -48,6 +62,14 @@ function CreateProductForm () {
 
 
     return (
+      <>
+      {validationErrors.length>0 && (
+        <div>
+          <ul>
+            {validationErrors.map(error=><li>{error}</li>)}
+          </ul>
+        </div>
+      )}
       <form onSubmit={handleSubmit} >
         <div className='createProductContainer'>
         <div >
@@ -116,6 +138,7 @@ function CreateProductForm () {
         <button type="submit" >Create your product listing</button>
       </div>
       </form>
+      </>
     )
 }
 

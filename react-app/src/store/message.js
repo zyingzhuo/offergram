@@ -21,19 +21,19 @@ export const getMessages=(senderId, receiverId)=>async(dispatch)=>{
     }
 }
 
-// export const createMessage=(payload)=>async(dispatch)=>{
-//     const response= await fetch(`/api/messages/sender/${senderId}/receiver/${receiverId}`, {
-//         method: 'POST',
-//         headers: {'Content-Type': 'application/json'},
-//         body: JSON.stringify(payload)
-//     })
+export const createMessage=(payload)=>async(dispatch)=>{
+    const response= await fetch(`/api/messages/`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
 
-//     if(response.ok) {
-//         const message=await response.json()
-//         dispatch(addMessage(message))
-//         return message
-//     }
-// }
+    if(response.ok) {
+        const message=await response.json()
+        dispatch(addMessage(message))
+        return message
+    }
+}
 
 const initialState={}
 const messageReducer=(state=initialState,action)=>{
@@ -45,11 +45,11 @@ const messageReducer=(state=initialState,action)=>{
             })
             return newState
         }
-        // case ADD_MESSAGE: {
-        //     const newState={...state}
-        //     newState[action.message.id]=action.message
-        //     return newState
-        // }
+        case ADD_MESSAGE: {
+            const newState={...state}
+            newState[action.message.id]=action.message
+            return newState
+        }
 
         default:
             return state;
