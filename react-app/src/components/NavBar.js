@@ -46,7 +46,7 @@ const NavBar = () => {
           
             {sessionUser ? (
             <>
-            <Search />
+            {/* <Search /> */}
             <div className='rightNav'>
                 <div className='sellNav'>
                     <i className="fas fa-funnel-dollar"></i>
