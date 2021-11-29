@@ -45,7 +45,7 @@ function LandingPage() {
 
        {/* <div style={{borderBottom:'1px #6b7177 solid', width:'73%',marginLeft:'14%', marginTop:'5%'}}></div> */}
 
-       <footer style={{backgroundColor:'#00a87e',paddingBottom:'3%', color:'white'}}>
+       <footer style={{backgroundColor:'#00a87e',paddingBottom:'3%', color:'white', width:'100vw'}}>
                         <h2 style={{textAlign:'center', marginTop:'5%'}}>Technologies used</h2>
                         <div style={{display:'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',rowGap:'30PX', columnGap:'20px', textAlign:'center', marginTop:'5%'}}>
                         <div>
