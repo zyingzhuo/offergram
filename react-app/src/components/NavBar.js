@@ -46,7 +46,7 @@ const NavBar = () => {
           
             {sessionUser ? (
             <>
-            {/* <Search /> */}
+            <Search />
             <div className='rightNav'>
                 <div className='sellNav'>
                     <i className="fas fa-funnel-dollar"></i>
@@ -73,6 +73,14 @@ const NavBar = () => {
               
               <div className='rightContainer'>
                 {/* <button onClick={onClick} className='demoword'>Demo</button> */}
+                <div style={{display:'flex', justifyContent:'space-around'}}>
+                <a href='https://github.com/zyingzhuo' target="_blank" rel='noreferrer' style={  {textDecoration:'none',marginRight:'15%', color:'#00a87e'}}>
+                                <i className="fab fa-github fa-2x tech2" ></i>
+                </a>
+                <a href='https://www.linkedin.com/in/yingjia-zhuo-25a474170/' target="_blank" rel='noreferrer' style={{  textDecoration: 'none',color:'#00a87e', marginRight:'10%' }}>
+                             <i className="fab fa-linkedin fa-2x tech2" ></i>
+                </a>
+                </div>
                 <div><NavLink to='/login' exact={true} activeClassName='active' className='loginword'>Login</NavLink></div>
                 <div><NavLink to='/sign-up' exact={true} activeClassName='active' className='signupword'>Sign Up</NavLink></div>
                 

@@ -5,13 +5,15 @@ import productReducer from './product'
 import userReducer from './user'
 import reviewReducer from './review'
 import messageReducer from './message';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session,
   product:productReducer,
   user:userReducer,
   review: reviewReducer,
-  message: messageReducer
+  message: messageReducer,
+  search: searchReducer
 });
 
 

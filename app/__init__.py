@@ -1,4 +1,5 @@
 import os
+from re import search
 from flask import Flask, render_template, request, session, redirect
 from flask.helpers import url_for
 from flask_cors import CORS
@@ -13,6 +14,7 @@ from .api.auth_routes import auth_routes
 from .api.product_routes import product_routes
 from .api.review_routes import review_routes
 from .api.message_routes import message_routes
+from .api.search_routes import search_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +41,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(product_routes, url_prefix='/api/products')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(message_routes,url_prefix='/api/messages')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 

@@ -17,6 +17,7 @@ import Search from './components/Search';
 import LandingPage from './components/LandingPage/LandingPage';
 import { useSelector } from 'react-redux';
 import DirectMessage from './components/DirectMessage/DirectMessage';
+import SearchResults from './components/Search/SearchResults';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,6 +41,9 @@ function App() {
       <Switch>
        <ProtectedRoute path='/messages/sender/:senderId/receiver/:receiverId' exact={true}>
         <DirectMessage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/search" exact={true}>
+        <SearchResults />
         </ProtectedRoute>
         <ProtectedRoute path="/selling" exact={true}>
         <CreateProductForm />
