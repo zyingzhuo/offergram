@@ -85,7 +85,7 @@ const onSubmit = async(e) => {
 return (user && (
     <div className='DMContainer'>
         
-        <div >
+        <div className='msgPortion' >
             {messages?.map((message) => (
                 <div className='singleMessage'>
                 <div className='messageContainer'>
@@ -98,17 +98,23 @@ return (user && (
                 </div>
             ))}
         </div>
-        <form onSubmit={onSubmit} className='messageform'>
-   
-        <input
-        type='text'
-        value={messageInput}
-        onChange={(e)=>setMessageInput(e.target.value)}
-        />
-       <div style={{ display: 'flex', justifyContent: 'end', marginTop: '-40px'}}>
-           <button  type="submit" style={{height:'1.5rem', width:'3rem'}}>Send</button>
+        <div className='formPortion'>
+            <form onSubmit={onSubmit} className='messageform' style={{width:'400px'}}>
+    
+                <input
+                type='text'
+                placeholder='Message'
+                value={messageInput}
+                onChange={(e)=>setMessageInput(e.target.value)}
+                style={{width:'400px', height:'70px'}}
+                />
+                <div style={{display:'flex', justifyContent:'flex-end', alignItems:'flex-end',vh:'5px'}}>
+                <button  type="submit" style={{height:'1.5rem', width:'3rem', fontWeight:'400', position:'absolute', zIndex:'999'}}>Send</button>
+                </div>
+            </form>
+            {/* <div style={{ display: 'flex', justifyContent: 'end', marginTop: '-40px'}}> */}
+            {/* </div> */}
        </div>
-       </form>
       
     </div>
 )

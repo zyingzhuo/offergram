@@ -21,9 +21,9 @@ function SingleProduct({product}) {
                 <NavLink to={`/products/${product.id}`}>
                 <img src={(product?.image)} style={{height:"150px", width:'150px'}} />
                 </NavLink>
-                <div>{product?.name}</div>
-                <div>${product?.price}</div>
-                <div>{product?.location}</div>
+                <div style={{fontSize:'1em', fontWeight:'700', lineHeight:'1.5'}}>{product?.name.slice(0,14)}</div>
+                <div >${product?.price}</div>
+                <div style={{color:'#8a8a8a',lineHeight:'1.7', fontSize:'0.875em'}}>{product?.location}</div>
                
                 
             </div>

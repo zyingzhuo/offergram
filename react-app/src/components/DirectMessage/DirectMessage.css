@@ -1,18 +1,34 @@
-.messageContainer{
-    display: flex;
-    align-items: flex-end;
+.DMContainer {
+  /* border: 1px solid black; */
+  height: 400px;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.singleMessage {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
+
+.messageform {
+  display: flex;
+  align-items: flex-end;
+  width: 400px;
+ 
+}
+
+.msgPortion {
+  height: 350px;
+  width: 400px;
+  border: 1px solid black;
+}
+
+.formPortion{
+    padding-bottom: 5%;
 }
 
 
-
-.singleMessage{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 3%;
-   
-}
-
-.messageform{
-    display: flex;
-    align-items: flex-end;
-}

@@ -71,22 +71,20 @@ function ChatForm ({sellerId,sellerName}) {
     
 return (
     <>
-    <div>{sellerName}</div>
-    <div className="messageDiv">
+    {/* <div>{sellerName}</div> */}
+    {/* <div className="messageDiv">
      
-    </div>
+    </div> */}
     <form onSubmit={onSubmit}>
-   
-    <input
-        type='text'
-        value={messageInput}
-        onChange={(e)=>setMessageInput(e.target.value)}
+        <input
+            type='text'
+            value={messageInput}
+            onChange={(e)=>setMessageInput(e.target.value)}
+        />
+        
+        <button className='middleBtn2' type="submit" style={{ borderColor: '#183a1d', zIndex: '5'}}>Send</button>
        
-    />
-        <div style={{ display: 'flex', justifyContent: 'end', marginTop: '-40px'}}>
-            <button className='middleBtn2' type="submit" style={{ borderColor: '#183a1d', zIndex: '5'}}>Send</button>
-    </div>
-</form>
+    </form>
     
    
 </>

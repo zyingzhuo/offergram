@@ -70,7 +70,7 @@ function CreateReviewForm(){
        /> */}
        <Rating onClick={handleRating} ratingValue={rating}/>
      
-     <button type="submit" >Submit your review</button>
+     <button type="submit" className='askContainer'>Submit your review</button>
      </div>
      </form>
     </>

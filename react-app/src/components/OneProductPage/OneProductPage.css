@@ -1,15 +1,19 @@
 .mainContainer{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    /* display: grid;
+    grid-template-columns: repeat minmax(200px) */
     
 }
 
 .productContainer{
     display: flex;
     flex-direction:column;
-    width: 70%;
+    justify-content: flex-end;
+    width: 60%;
+    
 
 }
 
@@ -17,5 +21,47 @@
     /* width: 30%; */
     display: flex;
     flex-direction: column;
+    /* width: 100%; */
     /* justify-content: center; */
+}
+
+.editButton{
+    width:10%;
+    border:1px solid;
+    /* min-width: 64px; */
+    /* display:flex;
+    justify-content: center; */
+    border-radius: 4px;
+    border-color: #00a87e;
+    background-color: #ffffff;
+    /* font-weight:bold; */
+    /* color:green */
+    margin-right: 3%;
+    box-shadow: 1.5px 1px px black
+}
+
+.deleteButton{
+    width:10%;
+    border:1px solid;
+    border-radius: 4px;
+    border-color: #00a87e;
+    background-color: #ffffff;
+    /* color:green */
+}
+
+.askContainer{
+    border:1px solid;
+    min-width: 64px;
+    display:flex;
+    justify-content: center;
+    border-radius: 4px;
+    border-color: #00a87e;
+    background-color: #ffffff;
+    
+}
+
+.sellerPortion{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
