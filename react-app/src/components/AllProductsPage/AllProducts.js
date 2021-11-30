@@ -26,7 +26,7 @@ const AllProducts=()=>{
     }, [dispatch])
 
     return (
-        <div  style={{marginTop3:'3%'}}>
+        <div  style={{marginTop:'5%'}}>
         
           {!productsArr.length && <span>No products available right now.</span>}
           <div className='productsContainer' >
