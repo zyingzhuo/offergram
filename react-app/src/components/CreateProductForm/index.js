@@ -70,8 +70,9 @@ function CreateProductForm () {
           </ul>
         </div>
       )}
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit} style={{marginTop:'5%'}}>
         <div className='createProductContainer'>
+          <div style={{ width:'350px', display:'flex', flexDirection:'column'}}>
         <div >
         <label >
           Name of your product
@@ -135,7 +136,8 @@ function CreateProductForm () {
         </select>
         </label>
          
-        <button type="submit" >Create your product listing</button>
+        <button type="submit" style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff',borderRadius:'4px',marginTop:'2%',width:'100px',marginLeft:'20%'}} >Create your product listing</button>
+      </div>
       </div>
       </form>
       </>

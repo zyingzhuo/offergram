@@ -109,7 +109,7 @@ return (user && (
                 style={{width:'400px', height:'70px'}}
                 />
                 <div style={{display:'flex', justifyContent:'flex-end', alignItems:'flex-end',vh:'5px'}}>
-                <button  type="submit" style={{height:'1.5rem', width:'3rem', fontWeight:'400', position:'absolute', zIndex:'999'}}>Send</button>
+                <button  type="submit" style={{height:'1.5rem', width:'3rem', fontWeight:'400', position:'absolute', zIndex:'999',border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff',borderRadius:'4px',marginTop:'2%',width:'100px'}}>Send</button>
                 </div>
             </form>
             {/* <div style={{ display: 'flex', justifyContent: 'end', marginTop: '-40px'}}> */}
