@@ -18,3 +18,6 @@ def searchPage():
     return {
         'products':[product.to_dict() for product in searchResults]
     }
+
+
+    

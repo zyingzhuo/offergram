@@ -45,7 +45,7 @@ function Search() {
                 <option value='New York City'>New York City</option>
             </select>
 
-            <button>
+            <button style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff',borderRadius:'4px'}}>
                 Search
             </button>
            

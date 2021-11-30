@@ -12,7 +12,7 @@ function LandingPage() {
       }
  return (
      <>
-       <div style={{display:'flex', marginTop:'5%'}}>
+       <div style={{display:'flex', marginTop:'3.5%'}}>
            <img src='https://i.imgur.com/ZLHGhCu.png' style={{width:'60%', borderRadius:'5px',marginRight:'3%'}}></img>
            <div style={{textAlign:'center', width:'40%', height:'10%',marginTop:'10%'}}>
            <h2>Buy and sell locally</h2>

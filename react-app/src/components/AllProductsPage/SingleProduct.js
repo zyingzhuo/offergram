@@ -19,7 +19,7 @@ function SingleProduct({product}) {
             {/* //{spot?.url} */}
             <div >
                 <NavLink to={`/products/${product.id}`}>
-                <img src={(product?.image)} style={{height:"150px", width:'150px'}} />
+                <div className='grow'><img src={(product?.image)} style={{height:"150px", width:'150px', objectFit:'cover', boxShadow:'2px 2px 2px 2px lightgrey'}} /></div>
                 </NavLink>
                 <div style={{fontSize:'1em', fontWeight:'700', lineHeight:'1.5'}}>{product?.name.slice(0,14)}</div>
                 <div >${product?.price}</div>

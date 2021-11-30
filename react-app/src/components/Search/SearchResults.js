@@ -23,7 +23,7 @@ function SearchResults() {
 
     return(
         <>
-        <div>
+        <div className='productsContainer'>
        {products.map((product)=>(
            <SingleProduct product={product}/>
        ))}

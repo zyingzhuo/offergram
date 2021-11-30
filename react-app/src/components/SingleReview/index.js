@@ -37,8 +37,8 @@ return (
         <RatingView ratingValue={review?.rating} size='10px'/>
         {review?.reviewerId==currentUserId&& (
             <div>
-                <button onClick={()=>seteditReview(true)}>edit review</button>
-                <button onClick={onClickDelete}>delete review</button>
+                <button onClick={()=>seteditReview(true)} style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff', borderRadius:'4px'}}>edit review</button>
+                <button onClick={onClickDelete} style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff', borderRadius:'4px'}}>delete review</button>
                 {editreview &&(
                     <EditReviewForm reviewId={review.id} seteditReview={seteditReview} />
                 )}
