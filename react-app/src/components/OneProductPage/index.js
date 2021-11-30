@@ -75,7 +75,7 @@ const OneProductPage=()=>{
        
         {/* //{spot?.url} */}
         <div>
-            <div className='mainContainer'>
+            <div className='mainContainer' style={{marginTop:'5%'}}>
                 <div className='productContainer'>
                     <div style={{color: '#121212', fontWeight:'900', lineHeight:'1.333333'}}>{currentProduct?.name}</div>
                     <div style={{lineHeight:'1.333', fontWeight:'900'}}>${currentProduct?.price}</div>
